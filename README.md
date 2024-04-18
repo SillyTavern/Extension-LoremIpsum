@@ -18,4 +18,4 @@ Provides a slash command for STscript that generates a Lorem Ipsum text and outp
 
 Licensed under AGPLv3.
 
-Uses code from [https://raw.githubusercontent.com/fffilo/lorem-ipsum-js/master/src/lorem-ipsum.js]
+Uses code from [fffilo/lorem-ipsum-js](https://raw.githubusercontent.com/fffilo/lorem-ipsum-js/master/src/lorem-ipsum.js)
