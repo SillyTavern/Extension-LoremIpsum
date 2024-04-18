@@ -2,13 +2,21 @@
 
 Provides a slash command for STscript that generates a Lorem Ipsum text and outputs it to the pipe.
 
-## Usage:
+## Installation
+
+Install using a third-party extensions installer using the following URL:
+
+```
+https://github.com/SillyTavern/Extension-LoremIpsum
+```
+
+## Usage
 
 ```
 /lorem units=p count=1 separator=" "
 ```
 
-## Arguments:
+## Arguments
 
 * units: enum { p(aragraphs) / w(ords) / s(entences) }. Default: paragraphs.
 * count: integer. Default: 1.
