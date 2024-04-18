@@ -1,14 +1,14 @@
 # Lorem Ipsum Generator
 
-Provides a slash command for STscript that generates a Lorem Ipsum text and outputs it to pipe.
+Provides a slash command for STscript that generates a Lorem Ipsum text and outputs it to the pipe.
 
-Usage:
+## Usage:
 
 ```
 /lorem units=p count=1 separator=" "
 ```
 
-Arguments:
+## Arguments:
 
 * units: enum { p(aragraphs) / w(ords) / s(entences) }. Default: paragraphs.
 * count: integer. Default: 1.
