@@ -1,4 +1,6 @@
-/* global SillyTavern */
+import { SlashCommand } from '../../../slash-commands/SlashCommand.js';
+import { ARGUMENT_TYPE, SlashCommandNamedArgument } from '../../../slash-commands/SlashCommandArgument.js';
+import { SlashCommandParser } from '../../../slash-commands/SlashCommandParser.js';
 
 /**
  * Lorem Ipsum generator
@@ -165,6 +167,37 @@ function commandCallback(args) {
 }
 
 jQuery(() => {
-    const context = SillyTavern.getContext();
-    context.registerSlashCommand('lorem', commandCallback, [], '<span class="monospace">units=w/p/s count=1 separator="{{newline}}{{newline}}"</span> – generate lorem ipsum text with specified units (words/paragraphs/sentences) and count', true, true);
+    SlashCommandParser.addCommandObject(SlashCommand.fromProps({
+        name: 'lorem',
+        callback: commandCallback,
+        helpString: 'Generate lorem ipsum text with specified units (words/paragraphs/sentences) and count.',
+        returns: 'lorem ipsum text',
+        namedArgumentList: [
+            SlashCommandNamedArgument.fromProps({
+                name: 'units',
+                typeList: [ARGUMENT_TYPE.STRING],
+                enumList: ['words', 'sentences', 'paragraphs'],
+                acceptsMultiple: false,
+                defaultValue: 'paragraphs',
+                isRequired: false,
+                description: 'units to generate',
+            }),
+            SlashCommandNamedArgument.fromProps({
+                name: 'count',
+                typeList: [ARGUMENT_TYPE.NUMBER],
+                defaultValue: String(1),
+                isRequired: false,
+                acceptsMultiple: false,
+                description: 'number of units to generate',
+            }),
+            SlashCommandNamedArgument.fromProps({
+                name: 'separator',
+                typeList: [ARGUMENT_TYPE.STRING],
+                defaultValue: '{{newline}}{{newline}}',
+                isRequired: false,
+                acceptsMultiple: false,
+                description: 'separator between units',
+            }),
+        ],
+    }));
 });
